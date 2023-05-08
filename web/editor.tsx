@@ -984,7 +984,7 @@ export class Editor {
   }
 
   tweakEditorDOM(contentDOM: HTMLElement) {
-    contentDOM.spellcheck = true;
+    contentDOM.spellcheck = this.viewState.uiOptions.spellcheckEnabled;
     contentDOM.setAttribute("autocorrect", "on");
     contentDOM.setAttribute("autocapitalize", "on");
   }
@@ -1060,7 +1060,7 @@ export class Editor {
     useEffect(() => {
       this.rebuildEditorState();
       this.dispatchAppEvent("editor:modeswitch");
-    }, [viewState.uiOptions.vimMode]);
+    }, [viewState.uiOptions.vimMode, viewState.uiOptions.spellcheckEnabled]);
 
     useEffect(() => {
       document.documentElement.dataset.theme = viewState.uiOptions.darkMode

@@ -10,6 +10,14 @@ export async function setEditorMode() {
   }
 }
 
+export async function toggleSpellcheck() {
+  let spellCheck = await clientStore.get("spellcheckEnabled");
+  spellCheck = !spellCheck
+
+  await editor.setUiOption("spellcheckEnabled", spellCheck);
+  await clientStore.set("spellcheckEnabled", spellCheck);
+}
+
 export async function toggleDarkMode() {
   let darkMode = await clientStore.get("darkMode");
   darkMode = !darkMode;

@@ -26,6 +26,10 @@ functions:
     path: "./editor.ts:toggleDarkMode"
     command:
       name: "Editor: Toggle Dark Mode"
+  toggleSpellcheck:
+    path: "./editor.ts:toggleSpellcheck"
+    command:
+      name: "Editor: Toggle Spell Checking"
 
   clearPageIndex:
     path: "./page.ts:clearPageIndex"
