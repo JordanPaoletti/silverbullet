@@ -1200,7 +1200,7 @@ export class Editor {
   }
 
   tweakEditorDOM(contentDOM: HTMLElement) {
-    contentDOM.spellcheck = true;
+    contentDOM.spellcheck = this.viewState.uiOptions.spellcheckEnabled;
     contentDOM.setAttribute("autocorrect", "on");
     contentDOM.setAttribute("autocapitalize", "on");
   }
@@ -1271,7 +1271,7 @@ export class Editor {
           editor.editorView.contentDOM,
         );
       }
-    }, [viewState.uiOptions.forcedROMode]);
+    }, [viewState.uiOptions.forcedROMode, viewState.uiOptions.spellcheckEnabled]);
 
     useEffect(() => {
       this.rebuildEditorState();

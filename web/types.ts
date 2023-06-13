@@ -62,6 +62,7 @@ export type AppViewState = {
     vimMode: boolean;
     darkMode: boolean;
     forcedROMode: boolean;
+    spellcheckEnabled: boolean;
   };
 
   // Filter box
@@ -94,6 +95,7 @@ export const initialViewState: AppViewState = {
     vimMode: false,
     darkMode: false,
     forcedROMode: false,
+    spellcheckEnabled: false,
   },
   panels: {
     lhs: {},

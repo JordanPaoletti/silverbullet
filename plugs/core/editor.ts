@@ -9,11 +9,23 @@ export async function setEditorMode() {
   if (await store.get("darkMode")) {
     await editor.setUiOption("darkMode", true);
   }
+  if (await store.get("spellcheckEnabled")) {
+    await editor.setUiOption("spellcheckEnabled", true);
+  }
+}
+
+async function toggleUIMode(setting: string) {
+  let mode = await store.get(setting);
+  mode = !mode;
+
+  await editor.setUiOption(setting, mode);
+  await store.set(setting, mode);
 }
 
 export async function toggleDarkMode() {
-  let darkMode = await store.get("darkMode");
-  darkMode = !darkMode;
-  await editor.setUiOption("darkMode", darkMode);
-  await store.set("darkMode", darkMode);
+  await toggleUIMode("darkMode");
+}
+
+export async function toggleSpellcheck() {
+  await toggleUIMode("spellcheckEnabled");
 }
