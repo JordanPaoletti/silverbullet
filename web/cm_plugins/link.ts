@@ -56,6 +56,7 @@ export function linkPlugin(client: Client) {
             class: "sb-link",
             attributes: {
               href: cleanLink,
+              contenteditable: "false",
               title: `Click to visit ${cleanLink}`,
             },
           }).range(from + 1, from + cleanAnchor.length + 1),
